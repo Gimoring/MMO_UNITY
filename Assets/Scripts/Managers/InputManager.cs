@@ -7,7 +7,7 @@ public class InputManager
 {
     public Action keyAction = null;
 
-    void OnUpdate()
+    public void OnUpdate()
     {
         if (Input.anyKey == false)
             return;

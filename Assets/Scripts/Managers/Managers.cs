@@ -5,8 +5,11 @@ using UnityEngine;
 public class Managers : MonoBehaviour
 {
     static Managers s_Instance; // 유일성이 보장된다.
-    public static Managers Instance { get { Init();  return s_Instance; } } // 유일한 게임 매니저를 가져온다.
-    
+    static Managers Instance { get { Init();  return s_Instance; } } // 유일한 게임 매니저를 가져온다.
+
+    InputManager _input = new InputManager();
+    public static InputManager Input { get { return Instance._input; } }
+
     void Start()
     {
         Init();
@@ -15,7 +18,7 @@ public class Managers : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Input.OnUpdate();
     }
 
     static void Init()

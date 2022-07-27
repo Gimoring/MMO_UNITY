@@ -8,20 +8,16 @@ public class PlayerController : MonoBehaviour
     int _speed = 8;
     void Start()
     {
-
+        Managers.Input.keyAction += OnKeyboard;
     }
 
-    float _yAngle = 0.0f;
     void Update()
     {
-        _yAngle += Time.deltaTime * 100.0f;
-        // 절대회전값
-        // transform.eulerAngles = new Vector3(0.0f, 0.0f, 0.0f);
+        
+    }
 
-        // transform.Rotate(new Vector3(0.0f, Time.deltaTime * 100.0f, 0.0f));
-        // transform.rotation = Quaternion.Euler(new Vector3(0.0f, _yAngle, 0.0f));
-
-
+    void OnKeyboard()
+    {
         if (Input.GetKey(KeyCode.W))
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(Vector3.forward), 0.2f);
